@@ -48,7 +48,7 @@ export default function Project1Page() {
     const technologies = [
         { name: "Next.js + TypeScript", icon: Code, color: "from-blue-500 to-cyan-500" },
         { name: "Tailwind CSS", icon: Palette, color: "from-cyan-500 to-teal-500" },
-        { name: "YOLOv5 Detection", icon: Bot, color: "from-purple-500 to-pink-500" },
+        { name: "YOLOv11 Detection", icon: Bot, color: "from-purple-500 to-pink-500" },
         { name: "Flask + WebSocket", icon: Flame, color: "from-orange-500 to-red-500" },
         { name: "Flask API", icon: Zap, color: "from-green-500 to-emerald-500" },
         { name: "PostgreSQL Database", icon: Building2, color: "from-indigo-500 to-blue-500" }
@@ -283,9 +283,9 @@ export default function Project1Page() {
                             <div className="relative p-8 md:p-12">
                                 <div className="grid md:grid-cols-3 gap-8 text-center">
                                     {[
-                                        { step: "01", title: "Patient Interview", desc: "ผู้บกพร่องทางการได้ยินซักประวัติกับพยาบาลโดยใช้กล้องตรวจจับในการสื่อสาร", icon: Video },
-                                        { step: "02", title: "Data Recording", desc: "พยาบาลกดบันทึกข้อมูลที่ซักประวัติได้จากการสื่อสาร", icon: Hand },
-                                        { step: "03", title: "Medical Diagnosis", desc: "หมอวินิจฉัยอาการของผู้ป่วยและบันทึกข้อมูลการรักษา", icon: MessageSquare }
+                                        { step: "01", title: "Patient Interview", desc: "A hearing-impaired person takes a medical history with a nurse using a camera-based communication system.", icon: Video },
+                                        { step: "02", title: "Data Recording", desc: "The nurse records the medical history information obtained through the communication.", icon: Hand },
+                                        { step: "03", title: "Medical Diagnosis", desc: "The doctor diagnoses the patient's condition and records the treatment information.", icon: MessageSquare }
                                     ].map((item, index) => (
                                         <motion.div
                                             key={index}
