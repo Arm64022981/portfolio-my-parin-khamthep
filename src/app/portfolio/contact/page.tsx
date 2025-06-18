@@ -1,6 +1,5 @@
 'use client';
 
-
 import Head from 'next/head';
 import { Mail, Phone, MapPin, Clock, Facebook, MessageCircle } from 'lucide-react';
 
@@ -23,7 +22,7 @@ export default function ContactPage() {
               <MapPin className="text-blue-400 mt-1" />
               <div>
                 <h2 className="font-semibold text-white">Address</h2>
-                <p>123/45 Sukhumvit Rd., Bangna, Bangna, Bangkok 10260</p>
+                <p>29/2 Moo 2, Ruam Chit, Tha Pla, Uttaradit 53150, Thailand</p>
               </div>
             </div>
 
@@ -31,7 +30,7 @@ export default function ContactPage() {
               <Phone className="text-blue-400 mt-1" />
               <div>
                 <h2 className="font-semibold text-white">Phone</h2>
-                <p>02-123-4567, 081-234-5678</p>
+                <p>080-437-2911</p>
               </div>
             </div>
 
@@ -39,7 +38,7 @@ export default function ContactPage() {
               <Mail className="text-blue-400 mt-1" />
               <div>
                 <h2 className="font-semibold text-white">Email</h2>
-                <p>contact@byarm.com</p>
+                <p>parinkhamthep21@gmail.com</p>
               </div>
             </div>
 
@@ -55,8 +54,8 @@ export default function ContactPage() {
               <Facebook className="text-blue-400 mt-1" />
               <div>
                 <h2 className="font-semibold text-white">Facebook</h2>
-                <a href="https://facebook.com/byarm" className="text-blue-300 hover:underline" target="_blank" rel="noopener noreferrer">
-                  facebook.com/byarm
+                <a href="https://www.facebook.com/arm.parin.2024" className="text-blue-300 hover:underline" target="_blank" rel="noopener noreferrer">
+                  https://www.facebook.com/arm.parin.2024
                 </a>
               </div>
             </div>
