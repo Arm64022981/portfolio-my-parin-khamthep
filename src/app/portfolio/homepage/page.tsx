@@ -9,11 +9,6 @@ import Header from '@/app/components/Header';
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
 
-interface Tech {
-  name: string;
-  icon: string;
-}
-
 interface Project {
   title: string;
   description: string;
@@ -21,6 +16,7 @@ interface Project {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  demoUrl?: string;
   slug: string;
 }
 
@@ -31,36 +27,30 @@ interface FormData {
 }
 
 const texts = ["Code with Heart", "Debug Mode: ON", "Build the Future with Code"];
-const techStack: Tech[] = [
-  { name: 'Git', icon: '/icons/github.png' },
-  { name: 'Next.js', icon: '/icons/next.png' },
-  { name: 'TypeScript', icon: '/icons/ts.png' },
-  { name: 'Python', icon: '/icons/python.png' },
-  { name: 'React', icon: '/icons/react.png' },
-  { name: 'Tailwind CSS', icon: '/icons/tailwindcss.png' },
-];
 
 const projects: Project[] = [
   { 
-    title: "AI-Powered Dashboard", 
-    description: "Modern analytics dashboard with real-time data visualization and AI insights", 
+    title: "Sign Language Medical History System for the Hearing ImpairedMedical System", 
+    description: "Revolutionizing healthcare communication through real-time AI-powered sign language translation, bridging the gap between doctors and hearing-impaired patients.", 
     image: "/icons/Project 1.png",
-    tags: ["React", "TypeScript", "AI", "Charts"],
+    tags: ["Next.js", "TypeScript", "Python", "Yolo11", "Tailwind CSS"],
     slug: "/portfolio/projectwork/project1",
   },
   { 
-    title: "E-Commerce Platform", 
-    description: "Full-stack e-commerce solution with payment integration and admin panel", 
-    image: "/tailwindcss.png",
-    tags: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
+    title: "Admin-dashboard-my-sign-language-project", 
+    description: "An admin system to easily manage doctors, nurses, and patients information, enabling efficient and streamlined personnel and patient data management..", 
+    image: "/icons/Project 2.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons", "Python"],
     slug: "/portfolio/projectwork/project2",
+    demoUrl: "https://admin-dashboard-my-sign-language-pr-eight.vercel.app/admin/profile",
   },
   { 
-    title: "Social Media App", 
-    description: "Real-time social platform with messaging, posts, and user interactions", 
-    image: "/project-3.png",
-    tags: ["React", "Socket.io", "Node.js", "PostgreSQL"],
+    title: "CryptoSecure", 
+    description: "A secure AES encryption and decryption tool built for real-time message protection with a modern, user-friendly interface", 
+    image: "/icons/Project 3.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons"],
     slug: "/portfolio/projectwork/project3",
+    demoUrl: "https://poc-encrypt-decrypt-aes-gcm.vercel.app/encrypt-decrypt",
   },
 ];
 
@@ -81,7 +71,7 @@ const Home: React.FC = () => {
 
   const animateText = useCallback(async () => {
     const text = texts[currentTextIndex];
-    await controls.set({ opacity: 0, y: 20 });
+    controls.set({ opacity: 0, y: 20 });
 
     for (let i = 0; i <= text.length; i++) {
       await controls.start((index: number) => ({
@@ -246,7 +236,7 @@ const Home: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Get in Touch 💬
+                  Get in Touch 
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -263,7 +253,7 @@ const Home: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
                 About Me
               </h2>
-              <div className="max-w-4xl mx-auto text-center space-y-6">
+              <div className="max-w-3xl mx-auto text-center space-y-8">
                 <motion.p 
                   className="text-lg sm:text-xl text-gray-300 leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
@@ -271,8 +261,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  Passionate Computer Science graduate specializing in modern web development with React, Next.js, and TypeScript.
-                  I love creating beautiful, functional, and user-friendly applications that solve real-world problems.
+                  Passionate Computer Science graduate specializing in modern web development. I love creating beautiful, functional, and user-friendly applications that solve real-world problems using cutting-edge technologies.
                 </motion.p>
                 <motion.p 
                   className="text-lg sm:text-xl text-gray-300 leading-relaxed"
@@ -281,46 +270,9 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver cutting-edge solutions
-                  that make a difference in people's lives.
+                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let's collaborate to build something amazing!
                 </motion.p>
               </div>
-
-              {/* Tech Stack */}
-              <motion.div 
-                className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-gray-900/20 to-gray-800/20 backdrop-blur-sm border border-blue-500/20"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-              >
-                <h3 className="text-2xl font-bold text-center mb-8 text-white">Tech Stack</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                  {techStack.map((tech, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="flex flex-col items-center space-y-3 group cursor-pointer"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -5 }}
-                    >
-                      <div className="w-16 h-16 relative group-hover:drop-shadow-lg transition-all duration-300">
-                        <Image 
-                          src={tech.icon} 
-                          alt={tech.name} 
-                          fill 
-                          className="object-contain filter group-hover:brightness-110" 
-                        />
-                      </div>
-                      <span className="text-sm text-white font-medium group-hover:text-blue-300 transition-colors">
-                        {tech.name}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
             </motion.div>
           </section>
 
@@ -336,15 +288,16 @@ const Home: React.FC = () => {
             </motion.h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <Link key={index} href={project.slug} passHref>
-                  <motion.div
-                    className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 cursor-pointer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    whileHover={{ y: -10 }}
-                  >
+                <motion.div
+                  key={index}
+                  className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 cursor-pointer"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -10 }}
+                >
+                  <Link href={project.slug} passHref>
                     <div className="relative h-64 overflow-hidden">
                       {isLoading ? (
                         <div className="w-full h-full bg-gradient-to-br from-purple-800/20 to-pink-800/20 animate-pulse" />
@@ -359,32 +312,78 @@ const Home: React.FC = () => {
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                     </div>
+                  </Link>
 
-                    <div className="p-6 space-y-4">
-                      <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{project.description}</p>
-                      
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-xs font-medium border border-blue-500/30"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Link href={project.slug} passHref>
+                        <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors cursor-pointer">
+                          {project.title}
+                        </h3>
+                      </Link>
+                      {project.demoUrl && (
+                        <motion.a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Demo
+                        </motion.a>
+                      )}
+                    </div>
+                    <Link href={project.slug} passHref>
+                      <p className="text-gray-400 text-sm leading-relaxed cursor-pointer">{project.description}</p>
+                    </Link>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-xs font-medium border border-blue-500/30"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
 
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-600/10 rounded-3xl" />
+                    {/* Buttons for GitHub and Live URL */}
+                    <div className="flex gap-4 mt-4">
+                      {project.githubUrl && (
+                        <motion.a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          GitHub
+                        </motion.a>
+                      )}
+                      {project.liveUrl && (
+                        <motion.a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Live Site
+                        </motion.a>
+                      )}
                     </div>
-                  </motion.div>
-                </Link>
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-600/10 rounded-3xl" />
+                  </div>
+                </motion.div>
               ))}
             </div>
           </section>
@@ -475,7 +474,7 @@ const Home: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 }}
                     >
-                      Send Message 🚀
+                      Send Message 
                     </motion.button>
                   </form>
                 </div>
@@ -493,7 +492,7 @@ const Home: React.FC = () => {
             className="space-y-6"
           >
             <p className="text-gray-400 text-lg">
-              © {new Date().getFullYear()} © 2025 ByArm. All rights reserved.
+              © {new Date().getFullYear()} ByArm. All rights reserved.
             </p>
             <div className="flex justify-center gap-8">
               {socialLinks.map((social, index) => (

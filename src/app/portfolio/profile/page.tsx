@@ -6,24 +6,24 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Header from '@/app/components/Header';
 
-const ProfilePage: React.FC = () => {
+const ResumePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Profile - ByArm</title>
-        <meta name="description" content="หน้าโปรไฟล์ส่วนตัวของ ByArm" />
+        <title>Resume - ByArm</title>
+        <meta name="description" content="Professional resume of ByArm, Junior Software Developer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white font-inter">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-gray-900 font-inter print:bg-white">
         <Header />
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          {/* Profile Section */}
-          <section className="flex flex-col lg:flex-row items-center gap-12 mb-20 mt-8">
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 print:py-6">
+          {/* Header Section */}
+          <section className="flex flex-col lg:flex-row items-center lg:items-start gap-8 mb-12 print:mb-6 mt-8">
             <motion.div
-              className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-lg border-4 border-blue-600 group"
+              className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden shadow-md border-2 border-gray-300 print:border-gray-400 group"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -37,49 +37,137 @@ const ProfilePage: React.FC = () => {
                 priority
               />
             </motion.div>
-            <div className="text-center lg:text-left space-y-5">
+            <div className="text-center lg:text-left space-y-3">
               <motion.h1
-                className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-white print:text-gray-900"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 ByArm
               </motion.h1>
-              <p className="text-lg text-gray-300 font-medium">Junior Software Developer</p>
-              <p className="text-base text-gray-400 max-w-xl leading-relaxed">
-                Completed a 4-month internship as a Junior Software Developer, working on both frontend and backend of web applications using Next.js. Responsibilities included developing responsive UI/UX and integrating APIs with backend services and databases.
-              </p>
-              <div className="flex gap-6 justify-center lg:justify-start">
+              <p className="text-lg font-medium text-gray-300 print:text-gray-700">Junior Software Developer</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-sm text-blue-400 print:text-gray-600">
+                <p>Phone: +66 (0) 8-0437-2911</p>
+                <p>Email: parinkhamthep21@gmail.com</p>
                 <a
-                  href="#"
-                  className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-all duration-200 hover:underline"
-                  aria-label="Visit ByArm's GitHub profile"
+                  href="https://www.reallygreatsite.com"
+                  className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
+                  aria-label="LinkedIn Profile"
                 >
-                  GitHub
+                  linkedin.com/in/byarm
                 </a>
                 <a
-                  href="#"
-                  className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-all duration-200 hover:underline"
-                  aria-label="Visit ByArm's LinkedIn profile"
+                  href="https://github.com/byarm"
+                  className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
+                  aria-label="GitHub Profile"
                 >
-                  LinkedIn
+                  github.com/byarm
                 </a>
                 <a
-                  href="#"
-                  className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-all duration-200 hover:underline"
-                  aria-label="Visit ByArm's Portfolio"
+                  href="https://byarmportfolio.com"
+                  className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
+                  aria-label="Portfolio"
                 >
-                  Portfolio
+                  byarmportfolio.com
                 </a>
               </div>
+              <p className="text-sm text-gray-400 print:text-gray-600">Address: 29/2 Moo 2 Ruam Chit, Tha Pla, Uttaradit</p>
             </div>
           </section>
 
-          {/* Education Section */}
-          <section className="mt-16">
+          {/* Summary Section */}
+          <section className="mb-12 print:mb-6">
             <motion.h2
-              className="text-3xl sm:text-4xl font-bold mb-10 text-center tracking-tight"
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Summary
+            </motion.h2>
+            <p className="text-gray-300 text-base leading-relaxed print:text-gray-700">
+              Motivated Junior Software Developer with a 4-month internship experience in building web applications using Next.js. Skilled in developing responsive UI/UX, integrating APIs, and collaborating on full-stack development projects. Passionate about leveraging technology to solve real-world problems, with a strong foundation in computer science and hands-on experience in web development and AI-related projects.
+            </p>
+          </section>
+
+          {/* Skills Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Skills
+            </motion.h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300 print:text-gray-700">
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Java: Basic understanding and hands-on experience with writing simple Java applications
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> JavaScript: Comfortable using JavaScript for creating interactive web content
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Python: Familiar with using Python for basic scripting and automation tasks
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> SQL: Basic knowledge of SQL for creating and managing simple database queries
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> HTML & CSS: Proficient in creating simple, responsive web pages
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Responsive Web Design: Learning to design web pages that function well across various devices
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Front-End Frameworks: Basic knowledge of frameworks like Bootstrap for enhanced web development
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Microsoft Office Suite: Advanced proficiency in Word, Excel, and PowerPoint for documentation and presentations
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Version Control Systems: Knowledgeable in using Git for version control and collaboration
+              </li>
+            </ul>
+          </section>
+
+          {/* Experience Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Experience
+            </motion.h2>
+            <motion.div
+              className="bg-gray-800/80 p-6 rounded-lg shadow-sm print:bg-white print:shadow-none"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Junior Software Developer (Intern)</h3>
+              <p className="text-gray-300 font-medium print:text-gray-700">Tech Company, Bangkok</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">June 2024 – September 2024</p>
+              <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+                <li>Developed and maintained full-stack web applications using Next.js and TypeScript for frontend, styled with CSS</li>
+                <li>Built and tested backend APIs connected to PostgreSQL database using Postman for API testing</li>
+                <li>Designed and optimized database schema to support application features and data integrity</li>
+                <li>Collaborated with the team to deliver features in an agile workflow and performed code reviews</li>
+              </ul>
+            </motion.div>
+          </section>
+
+          {/* Education Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -87,48 +175,124 @@ const ProfilePage: React.FC = () => {
             >
               Education
             </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                className="bg-gray-800/80 p-6 rounded-xl shadow-lg border border-gray-700/50 backdrop-blur-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-semibold text-blue-400 mb-2">Bachelor of Computer Science</h3>
-                <p className="text-gray-300 font-medium">University of Phayao</p>
-                <p className="text-sm text-gray-400 mb-3">Academic Years: 2021 – 2025</p>
-                <p className="text-gray-400 text-base leading-relaxed">
-                  Focused on web development, artificial intelligence, and software engineering. Participated in projects related to sign language translation and healthcare systems.
-                </p>
-              </motion.div>
+            <motion.div
+              className="bg-gray-800/80 p-6 rounded-lg shadow-sm print:bg-white print:shadow-none"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Bachelor of Computer Science</h3>
+              <p className="text-gray-300 font-medium print:text-gray-700">School of Information and Communication Technology, University of Phayao</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2021 – 2025</p>
+              <p className="text-gray-300 text-base leading-relaxed print:text-gray-700">
+                Specialized in web development, artificial intelligence, and software engineering. Completed projects in sign language translation and healthcare system development.
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-gray-800/80 p-6 rounded-lg shadow-sm mt-4 print:bg-white print:shadow-none"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">High School – Science-Mathematics Program</h3>
+              <p className="text-gray-300 font-medium print:text-gray-700">Triam Udom Suksa Nomklao Uttaradit School</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2017 – 2020</p>
+              <p className="text-gray-300 text-base leading-relaxed print:text-gray-700">
+                Graduated with a strong foundation in mathematics and computer skills, fostering a passion for technology.
+              </p>
+            </motion.div>
+          </section>
 
-              <motion.div
-                className="bg-gray-800/80 p-6 rounded-xl shadow-lg border border-gray-700/50 backdrop-blur-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-semibold text-blue-400 mb-2">High School – Science-Mathematics Program</h3>
-                <p className="text-gray-300 font-medium">Triam Udom Suksa Nomklao Uttaradit School</p>
-                <p className="text-sm text-gray-400 mb-3">2017 – 2020</p>
-                <p className="text-gray-400 text-base leading-relaxed">
-                  Graduated from the Science-Mathematics program with a strong foundation in computer skills and mathematics. Developed a passion for computers, preparing for further studies in computer science.
-                </p>
-              </motion.div>
-            </div>
+          {/* Projects Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Projects
+            </motion.h2>
+            <motion.div
+              className="bg-gray-800/80 p-6 rounded-lg shadow-sm print:bg-white print:shadow-none"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Real-Time Sign Language Recognition Web App</h3>
+              <p className="text-gray-300 font-medium print:text-gray-700">Final Year Project</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2023</p>
+              <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+                <li>Developed full-stack web app with Next.js TypeScript frontend and Python YOLOv5, Flask backend</li>
+                <li>Built real-time hand gesture recognition and admin dashboard for user & role management</li>
+                <li>Designed responsive UI with Tailwind CSS based on user needs</li>
+                <li>Managed PostgreSQL database and deployed app using Docker</li>
+              </ul>
+            </motion.div>
+            <motion.div
+              className="bg-gray-800/80 p-6 rounded-lg shadow-sm mt-4 print:bg-white print:shadow-none"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Healthcare System Dashboard</h3>
+              <p className="text-gray-300 font-medium print:text-gray-700">University Project</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2022</p>
+              <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+                <li>Built a responsive dashboard using Next.js and Tailwind CSS to visualize patient data</li>
+                <li>Integrated MongoDB for data storage and retrieval, ensuring secure data handling</li>
+                <li>Designed intuitive UI/UX, improving accessibility for healthcare professionals</li>
+              </ul>
+            </motion.div>
+          </section>
+
+          {/* Software Development Skills Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Software Development Skills
+            </motion.h2>
+            <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+              <li>Software Design and Development: Understanding the fundamental principles of software design and development</li>
+              <li>Software Testing and Debugging: Learning to test and debug software to ensure proper functionality</li>
+              <li>Development Tools: Familiar with tools such as Git, Visual Studio Code, and Eclipse for software development</li>
+            </ul>
+          </section>
+
+          {/* Database Management Skills Section */}
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Database Management Skills
+            </motion.h2>
+            <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+              <li>Database Design: Basic understanding of database schema design</li>
+              <li>SQL Database Management: Learning to manage and manipulate SQL databases like MySQL and PostgreSQL</li>
+            </ul>
           </section>
         </main>
 
-        <footer className="bg-gray-900 py-6 text-center text-gray-500">
-          <p className="text-sm transition-all duration-200 hover:text-gray-400">
-            © {new Date().getFullYear()} ByArm. All rights reserved.
-          </p>
+        <footer className="bg-gray-900 py-4 text-center text-gray-500 print:bg-white print:text-gray-600">
+          <p className="text-sm print:text-gray-600">© {new Date().getFullYear()} ByArm. All rights reserved.</p>
         </footer>
       </div>
     </>
   );
 };
 
-export default ProfilePage;
+export default ResumePage;

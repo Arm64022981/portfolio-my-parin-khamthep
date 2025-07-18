@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Facebook, MessageCircle } from 'lucide-react';
+import Header from '@/app/components/Header'; 
 
 const contactItems = [
   {
@@ -41,8 +42,10 @@ export default function ContactPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white">
-      <main className="px-4 sm:px-6 lg:px-8 py-24">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white">
+      <Header />
+
+      <main className="flex-grow px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight">
             Contact Me

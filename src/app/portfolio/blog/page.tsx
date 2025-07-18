@@ -9,21 +9,21 @@ const blogPosts = [
   {
     id: 1,
     title: "Getting Started with Next.js",
-    date: "May 10, 2025",
+    date: "October 28, 2024",
     summary: "Learn the basics of Next.js and how to create your first React app with server-side rendering.",
     slug: "getting-started-with-nextjs"
   },
   {
     id: 2,
     title: "How to Use Tailwind CSS",
-    date: "May 15, 2025",
+    date: "April 1, 2025",
     summary: "A quick guide to using Tailwind CSS utility classes to rapidly build custom UI components.",
     slug: "how-to-use-tailwind-css"
   },
   {
     id: 3,
     title: "Deploying Your Website",
-    date: "May 20, 2025",
+    date: " June 19, 2025",
     summary: "Step-by-step instructions to deploy your Next.js website on Vercel or other hosting platforms.",
     slug: "deploying-your-website"
   }
