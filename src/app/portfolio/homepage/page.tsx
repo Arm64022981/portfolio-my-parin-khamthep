@@ -29,24 +29,24 @@ interface FormData {
 const texts = ["Code with Heart", "Debug Mode: ON", "Build the Future with Code"];
 
 const projects: Project[] = [
-  { 
-    title: "Sign Language Medical History System for the Hearing ImpairedMedical System", 
-    description: "Revolutionizing healthcare communication through real-time AI-powered sign language translation, bridging the gap between doctors and hearing-impaired patients.", 
+  {
+    title: "Sign Language Medical History System for the Hearing ImpairedMedical System",
+    description: "Revolutionizing healthcare communication through real-time AI-powered sign language translation, bridging the gap between doctors and hearing-impaired patients.",
     image: "/icons/Project 1.png",
     tags: ["Next.js", "TypeScript", "Python", "Yolo11", "Tailwind CSS"],
     slug: "/portfolio/projectwork/project1",
   },
-  { 
-    title: "Admin-dashboard-my-sign-language-project", 
-    description: "An admin system to easily manage doctors, nurses, and patients information, enabling efficient and streamlined personnel and patient data management..", 
+  {
+    title: "Admin-dashboard-my-sign-language-project",
+    description: "An admin system to easily manage doctors, nurses, and patients information, enabling efficient and streamlined personnel and patient data management..",
     image: "/icons/Project 2.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons", "Python"],
     slug: "/portfolio/projectwork/project2",
     demoUrl: "https://admin-dashboard-my-sign-language-pr-eight.vercel.app/admin/profile",
   },
-  { 
-    title: "CryptoSecure", 
-    description: "A secure AES encryption and decryption tool built for real-time message protection with a modern, user-friendly interface", 
+  {
+    title: "CryptoSecure",
+    description: "A secure AES encryption and decryption tool built for real-time message protection with a modern, user-friendly interface",
     image: "/icons/Project 3.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons"],
     slug: "/portfolio/projectwork/project3",
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
 
           {/* Hero Section */}
           <section className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-12">
-            <motion.div 
+            <motion.div
               className="w-full lg:w-1/2 relative h-[50vh] sm:h-[60vh] lg:h-[80vh] rounded-3xl overflow-hidden"
               style={{ y: y1 }}
             >
@@ -183,7 +183,7 @@ const Home: React.FC = () => {
               )}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-8"
               style={{ y: y2 }}
             >
@@ -207,16 +207,16 @@ const Home: React.FC = () => {
                 ))}
               </motion.div>
 
-              <motion.p 
+              <motion.p
                 className="text-base sm:text-lg md:text-xl text-gray-300 text-center lg:text-left max-w-md leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀
+                Crafting innovative web solutions with passion and precision. Let&apos;s build the future together with cutting-edge technology! 🚀
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex gap-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Get in Touch 
+                  Get in Touch
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -254,7 +254,7 @@ const Home: React.FC = () => {
                 About Me
               </h2>
               <div className="max-w-3xl mx-auto text-center space-y-8">
-                <motion.p 
+                <motion.p
                   className="text-lg sm:text-xl text-gray-300 leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -263,14 +263,14 @@ const Home: React.FC = () => {
                 >
                   Passionate Computer Science graduate specializing in modern web development. I love creating beautiful, functional, and user-friendly applications that solve real-world problems using cutting-edge technologies.
                 </motion.p>
-                <motion.p 
+                <motion.p
                   className="text-lg sm:text-xl text-gray-300 leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let's collaborate to build something amazing!
+                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people&apos;s lives. Let&apos;s collaborate to build something amazing!
                 </motion.p>
               </div>
             </motion.div>
@@ -278,7 +278,7 @@ const Home: React.FC = () => {
 
           {/* Projects Section */}
           <section id="projects" className="py-24">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -337,7 +337,7 @@ const Home: React.FC = () => {
                     <Link href={project.slug} passHref>
                       <p className="text-gray-400 text-sm leading-relaxed cursor-pointer">{project.description}</p>
                     </Link>
-                    
+
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
@@ -397,7 +397,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-                Let's Connect
+                Let&apos;s Connect
               </h2>
               <div className="max-w-2xl mx-auto">
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-purple-500/20">
@@ -474,7 +474,7 @@ const Home: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 }}
                     >
-                      Send Message 
+                      Send Message
                     </motion.button>
                   </form>
                 </div>

@@ -8,7 +8,6 @@ import {
     Target,
     Code,
     Palette,
-    Bot,
     Flame,
     Zap,
     Building2,
@@ -19,7 +18,6 @@ import {
     ArrowLeft,
     Award,
     X,
-    Wifi,
 } from 'lucide-react';
 
 const containerVariants = {

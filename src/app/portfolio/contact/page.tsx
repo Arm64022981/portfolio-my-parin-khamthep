@@ -39,7 +39,7 @@ const contactItems = [
 ];
 
 export default function ContactPage() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [, setHoveredCard] = useState<number | null>(null);
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white">
@@ -51,7 +51,7 @@ export default function ContactPage() {
             Contact Me
           </h1>
           <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Reach out through any of the channels below. I'm here to connect and collaborate!
+            Reach out through any of the channels below. Im here to connect and collaborate!
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
