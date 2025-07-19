@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀
+                Crafting innovative web solutions with passion and precision. Let&apos;s build the future together with cutting-edge technology! 🚀
               </motion.p>
 
               <motion.div
@@ -269,7 +269,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let's collaborate to build something amazing!
+                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let&apos;s collaborate to build something amazing!
                 </motion.p>
               </div>
             </motion.div>
@@ -394,7 +394,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-                Let's Connect
+                Let&apos;s Connect
               </h2>
               <div className="max-w-2xl mx-auto">
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-purple-500/20">
