@@ -213,9 +213,7 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <motion.p>
-                  {"Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀"}
-                </motion.p>
+                {"Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀"}
               </motion.p>
 
               <motion.div
