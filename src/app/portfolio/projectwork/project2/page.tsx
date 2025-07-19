@@ -12,7 +12,6 @@ import {
     Zap,
     Building2,
     Users,
-    Video,
     Hand,
     MessageSquare,
     ArrowLeft,
@@ -43,7 +42,6 @@ const itemVariants = {
     },
 };
 
-// Data constants
 const TECHNOLOGIES = [
     { name: 'Next.js + TypeScript', icon: Code, color: 'from-blue-500 to-cyan-500' },
     { name: 'Tailwind CSS', icon: Palette, color: 'from-cyan-500 to-teal-500' },
@@ -72,27 +70,27 @@ const FEATURES = [
 
 const FUNCTION_EXPLANATIONS = [
     {
-        title: 'Patient History',
-        description: 'This page displays the list of patients who have been recorded through the medical history intake form. It allows users to view detailed patient information and edit patient records as needed.',
-        image: '/icons/Patient History.png',
+        title: 'Admin Dashboard',
+        description: 'This is the admin dashboard page that displays the list of patients, doctors, and nurses, along with the total count of each. It provides an overview for viewing and managing all related information conveniently.',
+        image: '/icons/Project 2.png',
         alt: 'Real-time sign language translation',
     },
     {
-        title: 'Medical Checkup',
-        description: 'This page is designed for entering information of individuals with hearing impairments and includes a camera activation feature that detects sign language to facilitate communication and ensure nurses can understand the patient effectively.',
-        image: '/icons/Medical Checkup.png',
+        title: 'Show user list',
+        description: 'This page is designed to display user information such as doctors or nurses. It allows viewing, editing, and deleting user records as needed.',
+        image: '/icons/doctor and nurses.png',
         alt: 'Medical history recording',
     },
     {
-        title: 'Report',
-        description: 'This page allows users to report any issues encountered while using the system and submit detailed problem information directly to the administrator.',
-        image: '/icons/report.png',
+        title: 'Register',
+        description: 'This page allows the administrator to register user accounts for system access. Users can register through the admin, and their roles and departments are specified during the registration process.',
+        image: '/icons/register.png',
         alt: 'Medical diagnosis',
     },
     {
-        title: 'Diagnosis',
-        description: 'This page displays the patient management interface and allows for recording diagnoses of individuals with hearing impairments.',
-        image: '/icons/Diagnosis.png',
+        title: 'Rerports',
+        description: 'This page displays user-submitted reports to the administrator, detailing any issues or problems encountered while using the system.',
+        image: '/icons/reports.png',
         alt: 'Medical diagnosis',
     }
 ];
@@ -106,20 +104,20 @@ const OBJECTIVES = [
 const WORKFLOW_STEPS = [
     {
         step: '01',
-        title: 'Patient Interview',
-        desc: 'A hearing-impaired person takes a medical history with a nurse using a camera-based communication system.',
-        icon: Video,
+        title: 'User Account Management',
+        desc: 'The admin registers and manages accounts for doctors, nurses, and patients, assigning appropriate roles and departments.',
+        icon: Building2,
     },
     {
         step: '02',
-        title: 'Data Recording',
-        desc: 'The nurse records the medical history information obtained through the communication.',
-        icon: Hand,
+        title: 'Data Monitoring & Maintenance',
+        desc: 'The admin monitors patient records, user activity, and system data to ensure accuracy and smooth operation.',
+        icon: Users,
     },
     {
         step: '03',
-        title: 'Medical Diagnosis',
-        desc: 'The doctor diagnoses the patients condition and records the treatment information.',
+        title: 'Issue Reporting & Resolution',
+        desc: 'The admin receives and reviews reports of system issues submitted by users, coordinating with relevant staff to resolve problems efficiently.',
         icon: MessageSquare,
     },
 ];
@@ -387,8 +385,8 @@ const HowItWorks = () => (
         <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-white">How It Works</h2>
             <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
-                Our system seamlessly integrates computer vision and natural language processing to provide
-                real-time sign language translation in healthcare settings.
+               Our admin system supports the real-time sign language translation platform by managing user accounts, monitoring reports, and organizing data related to doctors, nurses, and patients. This ensures smooth operation 
+               and accurate access control across the healthcare environment.
             </p>
         </div>
         <div className="relative">

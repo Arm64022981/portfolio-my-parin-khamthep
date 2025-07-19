@@ -148,7 +148,7 @@ const Home: React.FC = () => {
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white relative overflow-hidden">
-        {/* Animated Background Elements */}
+
         <div className="fixed inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Crafting innovative web solutions with passion and precision. Let&apos;s build the future together with cutting-edge technology! 🚀
+                Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀
               </motion.p>
 
               <motion.div
@@ -242,7 +242,6 @@ const Home: React.FC = () => {
             </motion.div>
           </section>
 
-          {/* About Section */}
           <section id="about" className="py-24">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -270,13 +269,12 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people&apos;s lives. Let&apos;s collaborate to build something amazing!
+                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let's collaborate to build something amazing!
                 </motion.p>
               </div>
             </motion.div>
           </section>
 
-          {/* Projects Section */}
           <section id="projects" className="py-24">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
@@ -315,13 +313,13 @@ const Home: React.FC = () => {
                   </Link>
 
                   <div className="p-6 space-y-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-between gap-3">
                       <Link href={project.slug} passHref>
                         <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors cursor-pointer">
                           {project.title}
                         </h3>
                       </Link>
-                      {project.demoUrl && (
+                      {project.demoUrl && index !== 0 && (
                         <motion.a
                           href={project.demoUrl}
                           target="_blank"
@@ -388,7 +386,6 @@ const Home: React.FC = () => {
             </div>
           </section>
 
-          {/* Contact Section */}
           <section id="contact" className="py-24">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -397,7 +394,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-                Let&apos;s Connect
+                Let's Connect
               </h2>
               <div className="max-w-2xl mx-auto">
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-purple-500/20">
@@ -483,7 +480,6 @@ const Home: React.FC = () => {
           </section>
         </main>
 
-        {/* Footer */}
         <footer className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm py-12 text-center border-t border-blue-500/20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
