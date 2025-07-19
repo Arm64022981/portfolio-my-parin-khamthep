@@ -213,7 +213,9 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Crafting innovative web solutions with passion and precision. Let&apos;s build the future together with cutting-edge technology! 🚀
+                <motion.p>
+                  {"Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀"}
+                </motion.p>
               </motion.p>
 
               <motion.div
@@ -269,7 +271,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people's lives. Let&apos;s collaborate to build something amazing!
+                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people&apos;s lives. Let&apos;s collaborate to build something amazing!
                 </motion.p>
               </div>
             </motion.div>
