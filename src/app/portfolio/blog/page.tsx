@@ -22,11 +22,40 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Deploying Your Website",
-    date: " June 19, 2025",
-    summary: "Step-by-step instructions to deploy your Next.js website on Vercel or other hosting platforms.",
-    slug: "deploying-your-website"
+    title: "DBuilding a Simple REST API with Flask",
+    date: " April 1, 2025",
+    summary: "Learn how to build a simple RESTful API using Flask, including routing, JSON responses, and basic error handling.",
+    slug: "building-rest-api-with-flask"
+  },
+  {
+    id: 4,
+    title: "Connecting Next.js Frontend to a Flask Backend API",
+    date: " April 19, 2025",
+    summary: "Step-by-step guide to connecting your Next.js frontend to a Flask backend API using fetch or Axios, with CORS setup.",
+    slug: "connect-nextjs-to-flask-api"
+  },
+  {
+    id: 5,
+    title: "Securing Your Flask API with JWT Authentication",
+    date: "April 5, 2025",
+    summary: "Implement token-based authentication in your Flask API using JSON Web Tokens (JWT) to protect routes and user data.",
+    slug: "flask-api-jwt-authentication"
+  },
+  {
+    id: 6,
+    title: "Deploying a Next.js Website to Vercel and Render",
+    date: "June 10, 2025",
+    summary: "Learn how to deploy your Next.js application step-by-step to both Vercel and Render platforms, including setup, environment variables, and CI/CD.",
+    slug: "deploy-nextjs-to-vercel-and-render"
+  },
+  {
+    id: 7,
+    title: "Deploying a Flask API on Render",
+    date: "July 15, 2025",
+    summary: "Deploy your Flask backend API on Render with steps to set up the Gunicorn server, environment variables, and production config.",
+    slug: "deploy-flask-api-on-render"
   }
+
 ];
 
 const containerVariants = {
@@ -100,12 +129,6 @@ export default function BlogPage() {
                 </time>
                 <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-5">{post.summary}</p>
                 <Link href={`/blog/${post.slug}`} passHref aria-label={`Read more about ${post.title}`}>
-                  <span className="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium transition-all duration-200 group-hover:translate-x-1">
-                    Read More
-                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
                 </Link>
               </motion.article>
             ))}

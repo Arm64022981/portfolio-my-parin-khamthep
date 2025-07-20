@@ -51,32 +51,17 @@ const ResumePage: React.FC = () => {
                 <p>Phone: +66 (0) 8-0437-2911</p>
                 <p>Email: parinkhamthep21@gmail.com</p>
                 <a
-                  href="https://www.reallygreatsite.com"
-                  className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
-                  aria-label="LinkedIn Profile"
-                >
-                  linkedin.com/in/byarm
-                </a>
-                <a
                   href="https://github.com/byarm"
                   className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
                   aria-label="GitHub Profile"
                 >
                   github.com/byarm
                 </a>
-                <a
-                  href="https://byarmportfolio.com"
-                  className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
-                  aria-label="Portfolio"
-                >
-                  byarmportfolio.com
-                </a>
               </div>
               <p className="text-sm text-gray-400 print:text-gray-600">Address: 29/2 Moo 2 Ruam Chit, Tha Pla, Uttaradit</p>
             </div>
           </section>
 
-          {/* Summary Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -101,40 +86,27 @@ const ResumePage: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              Skills
+              Programming Languages
             </motion.h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300 print:text-gray-700">
               <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Java: Basic understanding and hands-on experience with writing simple Java applications
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Java: Good understanding of OOP and Java application development.
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> JavaScript: Comfortable using JavaScript for creating interactive web content
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> JavaScript: Good understanding of JavaScript for building interactive web content.
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Python: Familiar with using Python for basic scripting and automation tasks
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Python: Familiar with using Python for basic scripting and automation tasks. 
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> SQL: Basic knowledge of SQL for creating and managing simple database queries
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> SQL: Good understanding of SQL for writing and managing database queries.
               </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> HTML & CSS: Proficient in creating simple, responsive web pages
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Responsive Web Design: Learning to design web pages that function well across various devices
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Front-End Frameworks: Basic knowledge of frameworks like Bootstrap for enhanced web development
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Microsoft Office Suite: Advanced proficiency in Word, Excel, and PowerPoint for documentation and presentations
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Version Control Systems: Knowledgeable in using Git for version control and collaboration
+               <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> TypeScript: Good understanding of TypeScript for building scalable web applications.
               </li>
             </ul>
           </section>
 
-          {/* Experience Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -143,7 +115,30 @@ const ResumePage: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              Experience
+              Web Development
+            </motion.h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300 print:text-gray-700">
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> HTML & CSS: Proficient in creating simple, responsive web pages.
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Responsive Web Design: Able to design web pages that function well across various devices.
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Front-End Frameworks: Familiar with utility-first CSS framework Tailwind CSS for rapid and flexible UI development.
+              </li>
+            </ul>
+          </section>
+
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Internship Experience
             </motion.h2>
             <motion.div
               className="bg-gray-800/80 p-6 rounded-lg shadow-sm print:bg-white print:shadow-none"
@@ -154,17 +149,16 @@ const ResumePage: React.FC = () => {
             >
               <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Junior Software Developer (Intern)</h3>
               <p className="text-gray-300 font-medium print:text-gray-700">Tech Company, Bangkok</p>
-              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">June 2024 – September 2024</p>
+              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">28 October 2024 – 14 February 2025</p>
               <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
-                <li>Developed and maintained full-stack web applications using Next.js and TypeScript for frontend, styled with CSS</li>
-                <li>Built and tested backend APIs connected to PostgreSQL database using Postman for API testing</li>
-                <li>Designed and optimized database schema to support application features and data integrity</li>
+                <li>Developed and maintained full-stack web applications using Next.js and TypeScript for frontend, styled with CSS.</li>
+                <li>Built real-time hand gesture recognition and admin dashboard for user & role management.</li>
+                <li>Designed and optimized database schema to support application features and data integrity.</li>
                 <li>Collaborated with the team to deliver features in an agile workflow and performed code reviews</li>
               </ul>
             </motion.div>
           </section>
 
-          {/* Education Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -205,7 +199,6 @@ const ResumePage: React.FC = () => {
             </motion.div>
           </section>
 
-          {/* Projects Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -225,12 +218,11 @@ const ResumePage: React.FC = () => {
             >
               <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Real-Time Sign Language Recognition Web App</h3>
               <p className="text-gray-300 font-medium print:text-gray-700">Final Year Project</p>
-              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2023</p>
               <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
-                <li>Developed full-stack web app with Next.js TypeScript frontend and Python YOLOv5, Flask backend</li>
-                <li>Built real-time hand gesture recognition and admin dashboard for user & role management</li>
-                <li>Designed responsive UI with Tailwind CSS based on user needs</li>
-                <li>Managed PostgreSQL database and deployed app using Docker</li>
+                <li>Developed full-stack web app with Next.js TypeScript frontend and Python YOLOv5, Flask backend.</li>
+                <li>Built real-time hand gesture recognition and admin dashboard for user & role management.</li>
+                <li>Designed responsive UI with Tailwind CSS based on user needs.</li>
+                <li>Managed PostgreSQL database and deployed app using Docker.</li>
               </ul>
             </motion.div>
             <motion.div
@@ -241,17 +233,16 @@ const ResumePage: React.FC = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-xl font-semibold text-blue-400 print:text-gray-900">Healthcare System Dashboard</h3>
-              <p className="text-gray-300 font-medium print:text-gray-700">University Project</p>
-              <p className="text-sm text-gray-400 mb-3 print:text-gray-600">2022</p>
+              <p className="text-gray-300 font-medium print:text-gray-700">Final Year Project</p>
               <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
-                <li>Built a responsive dashboard using Next.js and Tailwind CSS to visualize patient data</li>
-                <li>Integrated MongoDB for data storage and retrieval, ensuring secure data handling</li>
-                <li>Designed intuitive UI/UX, improving accessibility for healthcare professionals</li>
+                <li>Built a responsive dashboard using Next.js and Tailwind CSS to visualize patient data.</li>
+                <li>Integrated MongoDB for data storage and retrieval, ensuring secure data handling.</li>
+                <li>Designed intuitive UI/UX, improving accessibility for healthcare professionals.</li>
+                <li>Deployed web applications on Vercel and Render platforms to ensure reliable production hosting and continuous delivery.</li>
               </ul>
             </motion.div>
           </section>
 
-          {/* Software Development Skills Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -263,13 +254,12 @@ const ResumePage: React.FC = () => {
               Software Development Skills
             </motion.h2>
             <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
-              <li>Software Design and Development: Understanding the fundamental principles of software design and development</li>
-              <li>Software Testing and Debugging: Learning to test and debug software to ensure proper functionality</li>
-              <li>Development Tools: Familiar with tools such as Git, Visual Studio Code, and Eclipse for software development</li>
+              <li>Software Design and Development: Understanding the fundamental principles of software design and development.</li>
+              <li>Software Testing and Debugging: Learning to test and debug software to ensure proper functionality.</li>
+              <li>Development Tools: Familiar with tools such as Git and Visual Studio Code for software development.</li>
             </ul>
           </section>
 
-          {/* Database Management Skills Section */}
           <section className="mb-12 print:mb-6">
             <motion.h2
               className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
@@ -281,8 +271,8 @@ const ResumePage: React.FC = () => {
               Database Management Skills
             </motion.h2>
             <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
-              <li>Database Design: Basic understanding of database schema design</li>
-              <li>SQL Database Management: Learning to manage and manipulate SQL databases like MySQL and PostgreSQL</li>
+              <li>Database Design: Basic understanding of database schema design.</li>
+              <li>SQL Database Management: Familiar with managing and manipulating SQL databases such as PostgreSQL.</li>
             </ul>
           </section>
         </main>

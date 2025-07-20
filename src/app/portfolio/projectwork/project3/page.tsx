@@ -70,19 +70,19 @@ const FUNCTION_EXPLANATIONS = [
     {
         title: 'Encryption Interface',
         description: 'A clean interface for users to input text and encryption keys, with real-time AES encryption output.',
-        image: '/icons/EncryptionInterface.png',
+        image: '/icons/Encrypt Message.png',
         alt: 'Encryption interface',
     },
     {
         title: 'Decryption Interface',
         description: 'Easily decrypt messages using the provided key, with instant results displayed in a user-friendly format.',
-        image: '/icons/DecryptionInterface.png',
+        image: '/icons/Decrypt Message.png',
         alt: 'Decryption interface',
     },
     {
         title: 'Key Generator',
         description: 'Generate secure AES keys with customizable length and complexity for encryption purposes.',
-        image: '/icons/KeyGenerator.png',
+        image: '/icons/Key Generator.png',
         alt: 'Key generator tool',
     },
 ];

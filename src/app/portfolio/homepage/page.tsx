@@ -348,7 +348,6 @@ const Home: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* Buttons for GitHub and Live URL */}
                     <div className="flex gap-4 mt-4">
                       {project.githubUrl && (
                         <motion.a
@@ -377,7 +376,6 @@ const Home: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Hover Glow Effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-600/10 rounded-3xl" />
                   </div>
