@@ -13,7 +13,7 @@ const contactItems = [
   {
     icon: Phone,
     title: 'Phone',
-    content: '080-437-2911',
+    content: '092-524-7059',
   },
   {
     icon: Mail,
@@ -34,7 +34,7 @@ const contactItems = [
   {
     icon: MessageCircle,
     title: 'LINE',
-    content: '@byarm',
+    content: 'ID: 090-437-2911',
   },
 ];
 

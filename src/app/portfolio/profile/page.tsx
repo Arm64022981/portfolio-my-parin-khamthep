@@ -51,7 +51,7 @@ const ResumePage: React.FC = () => {
                 <p>Phone: +66 (0) 8-0437-2911</p>
                 <p>Email: parinkhamthep21@gmail.com</p>
                 <a
-                  href="https://github.com/byarm"
+                  href="https://github.com/Arm64022981"
                   className="hover:text-blue-300 transition-all duration-200 hover:underline print:text-gray-600"
                   aria-label="GitHub Profile"
                 >
@@ -273,6 +273,25 @@ const ResumePage: React.FC = () => {
             <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
               <li>Database Design: Basic understanding of database schema design.</li>
               <li>SQL Database Management: Familiar with managing and manipulating SQL databases such as PostgreSQL.</li>
+            </ul>
+          </section>
+
+          <section className="mb-12 print:mb-6">
+            <motion.h2
+              className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4 text-white print:text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Management & Soft Skills
+            </motion.h2>
+            <ul className="list-disc list-inside text-gray-300 text-base leading-relaxed space-y-2 print:text-gray-700">
+              <li>Strong team collaboration skills gained from project-based and internship experiences.</li>
+              <li>Effective time management and task prioritization during multi-phase software development.</li>
+              <li>Leadership experience in coordinating team roles and deadlines in academic projects.</li>
+              <li>Excellent communication and presentation skills, including remote meetings via Google Meet.</li>
+              <li>Highly adaptable with a strong interest in learning organizational operations and management.</li>
             </ul>
           </section>
         </main>

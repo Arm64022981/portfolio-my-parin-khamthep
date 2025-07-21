@@ -30,10 +30,10 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 px-8 py-4 flex justify-between items-center transition-all duration-500 ease-out ${
+            className={`fixed top-0 left-0 w-full z-50 h-16 px-8 flex justify-between items-center transition-all duration-500 ease-out bg-black ${
                 isScrolled
-                    ? 'backdrop-blur-xl bg-black/20 border-b border-white/10 shadow-2xl'
-                    : 'bg-transparent'
+                    ? 'backdrop-blur-xl bg-black/90 border-b border-white/10 shadow-2xl'
+                    : 'bg-black'
             }`}
         >
             <div className="relative group">

@@ -117,9 +117,9 @@ const Home: React.FC = () => {
       .then(() => {
         Swal.fire({
           icon: 'success',
-          title: 'ส่งข้อความสำเร็จ!',
-          text: 'ขอบคุณที่ติดต่อมานะครับ',
-          confirmButtonText: 'ปิด',
+          title: 'Message sent successfully!',
+          text: 'Thank you for reaching out to me.',
+          confirmButtonText: 'Close',
           background: '#1f2937',
           color: '#ffffff'
         });
@@ -128,9 +128,9 @@ const Home: React.FC = () => {
       .catch((error) => {
         Swal.fire({
           icon: 'error',
-          title: 'ส่งข้อความไม่สำเร็จ',
-          text: error.text || 'เกิดข้อผิดพลาดบางอย่าง',
-          confirmButtonText: 'ปิด',
+          title: 'Failed to send the message',
+          text: error.text || 'An error has occurred',
+          confirmButtonText: 'Close',
           background: '#1f2937',
           color: '#ffffff'
         });
