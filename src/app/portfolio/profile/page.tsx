@@ -46,9 +46,9 @@ const ResumePage: React.FC = () => {
               >
                 ByArm
               </motion.h1>
-              <p className="text-lg font-medium text-gray-300 print:text-gray-700">Junior Software Developer</p>
+              <p className="text-lg font-medium text-gray-300 print:text-gray-700">Junior Developer (Computer Science Graduate)</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-sm text-blue-400 print:text-gray-600">
-                <p>Phone: +66 (0) 8-0437-2911</p>
+                <p>Phone: +66 (0) 9-2524-7059</p>
                 <p>Email: parinkhamthep21@gmail.com</p>
                 <a
                   href="https://github.com/Arm64022981"
@@ -73,8 +73,7 @@ const ResumePage: React.FC = () => {
               Summary
             </motion.h2>
             <p className="text-gray-300 text-base leading-relaxed print:text-gray-700">
-              Motivated Junior Software Developer with a 4-month internship experience in building web applications using Next.js. Skilled in developing responsive UI/UX, integrating APIs, and collaborating on full-stack development projects. Passionate about leveraging technology to solve real-world problems, with a strong foundation in computer science and hands-on experience in web development and AI-related projects.
-            </p>
+              Computer Science graduate with experience in full-stack development and a 4-month internship as a Software Developer. Built a real-time sign language recognition app using Next.js, TypeScript, Flask, and PostgreSQL. Experienced in responsive UI design with Tailwind CSS, version control with Git/GitHub, and deploying apps with Docker, Vercel, and Render.</p>
           </section>
 
           {/* Skills Section */}
@@ -96,12 +95,12 @@ const ResumePage: React.FC = () => {
                 <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> JavaScript: Good understanding of JavaScript for building interactive web content.
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Python: Familiar with using Python for basic scripting and automation tasks. 
+                <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> Python: Familiar with using Python for basic scripting and automation tasks.
               </li>
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> SQL: Good understanding of SQL for writing and managing database queries.
               </li>
-               <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-blue-400 rounded-full print:bg-gray-600"></span> TypeScript: Good understanding of TypeScript for building scalable web applications.
               </li>
             </ul>
