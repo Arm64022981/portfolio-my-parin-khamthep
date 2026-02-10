@@ -2,12 +2,14 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
+// Corrected import from 'image' to 'next/image'
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Header from '@/app/components/Header';
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
+import { Award, FileText } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -18,6 +20,8 @@ interface Project {
   liveUrl?: string;
   demoUrl?: string;
   slug: string;
+  isPublished?: boolean;
+  researchUrl?: string;
 }
 
 interface FormData {
@@ -26,15 +30,17 @@ interface FormData {
   message: string;
 }
 
-const texts = ["Code with Heart", "Debug Mode: ON", "Build the Future with Code"];
+const texts = ["Code with Heart", "Building Tomorrow", "One Commit at a Time"];
 
 const projects: Project[] = [
   {
-    title: "Sign Language Medical History System for the Hearing ImpairedMedical System",
+    title: "Multimodal AI Framework for Sign Language Recognition and Medical Informatics in Hearing-Impaired Patients",
     description: "Revolutionizing healthcare communication through real-time AI-powered sign language translation, bridging the gap between doctors and hearing-impaired patients.",
     image: "/icons/Project 1.png",
-    tags: ["Next.js", "TypeScript", "Python", "Yolo11", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Python", "YOLOv10", "Tailwind CSS"],
     slug: "/portfolio/projectwork/project1",
+    isPublished: true,
+    researchUrl: "https://bright-journal.org/Journal/index.php/JADS/article/view/1096",
   },
   {
     title: "Admin-dashboard-my-sign-language-project",
@@ -51,6 +57,14 @@ const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons"],
     slug: "/portfolio/projectwork/project3",
     demoUrl: "https://poc-encrypt-decrypt-aes-gcm.vercel.app/encrypt-decrypt",
+  },
+  {
+    title: "Promotion Tools Hub",
+    description: "A comprehensive web-based platform designed to support and streamline telecommunications operations, featuring integrated system management, data analysis, and operational monitoring tools.",
+    image: "/icons/Project 4.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons"],
+    slug: "/portfolio/projectwork/project4",
+    demoUrl: "https://promotion-tools-hub-siv9.vercel.app/mainocs",
   },
 ];
 
@@ -242,6 +256,7 @@ const Home: React.FC = () => {
             </motion.div>
           </section>
 
+          {/* About Section */}
           <section id="about" className="py-24">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -260,7 +275,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  Passionate Computer Science graduate specializing in modern web development. I love creating beautiful, functional, and user-friendly applications that solve real-world problems using cutting-edge technologies.
+                  Currently, I’m working as a System Analyst, and honestly, I’m having a blast! There’s a certain thrill in talking with clients, diving into their ideas, and figuring out how to turn those visions into a solid system. It’s always exciting to solve puzzles and find the best solutions together.
                 </motion.p>
                 <motion.p
                   className="text-lg sm:text-xl text-gray-300 leading-relaxed"
@@ -269,12 +284,13 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Always exploring the latest tech trends and contributing to open-source projects to deliver innovative solutions that make a difference in people&apos;s lives. Let&apos;s collaborate to build something amazing!
+                  Beyond the analysis part, I still have a huge crush on Modern Web Development. I love keeping my hands dirty with code and staying up to date with new tech trends. For me, it’s all about the balance between clear logic and a great user experience. Always learning, always building, and definitely loving the journey!
                 </motion.p>
               </div>
             </motion.div>
           </section>
 
+          {/* Projects Section */}
           <section id="projects" className="py-24">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
@@ -288,14 +304,15 @@ const Home: React.FC = () => {
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 cursor-pointer"
+                  layoutId={`card-${project.slug}`}
+                  className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   whileHover={{ y: -10 }}
                 >
-                  <Link href={project.slug} passHref>
+                  <Link href={project.slug} className="block cursor-pointer">
                     <div className="relative h-64 overflow-hidden">
                       {isLoading ? (
                         <div className="w-full h-full bg-gradient-to-br from-purple-800/20 to-pink-800/20 animate-pulse" />
@@ -309,34 +326,57 @@ const Home: React.FC = () => {
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                      {project.isPublished && (
+                        <div className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg z-20">
+                          <Award size={12} /> Scopus Q3 Published
+                        </div>
+                      )}
                     </div>
                   </Link>
 
                   <div className="p-6 space-y-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <Link href={project.slug} passHref>
+                    <div className="flex items-start justify-between gap-3">
+                      <Link href={project.slug}>
                         <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors cursor-pointer">
                           {project.title}
                         </h3>
                       </Link>
-                      {project.demoUrl && index !== 0 && (
-                        <motion.a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Demo
-                        </motion.a>
-                      )}
+
+                      <div className="flex gap-2 shrink-0">
+                        {project.isPublished && project.researchUrl && (
+                          <motion.a
+                            href={project.researchUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300 flex items-center gap-1"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <FileText size={14} /> Paper
+                          </motion.a>
+                        )}
+
+                        {project.demoUrl && (
+                          <motion.a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            Demo
+                          </motion.a>
+                        )}
+                      </div>
                     </div>
-                    <Link href={project.slug} passHref>
-                      <p className="text-gray-400 text-sm leading-relaxed cursor-pointer">{project.description}</p>
+
+                    <Link href={project.slug}>
+                      <p className="text-gray-400 text-sm leading-relaxed cursor-pointer line-clamp-3">
+                        {project.description}
+                      </p>
                     </Link>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <span
@@ -375,15 +415,12 @@ const Home: React.FC = () => {
                       )}
                     </div>
                   </div>
-
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-600/10 rounded-3xl" />
-                  </div>
                 </motion.div>
               ))}
             </div>
           </section>
 
+          {/* Contact Section */}
           <section id="contact" className="py-24">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
