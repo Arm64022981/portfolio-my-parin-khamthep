@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
-import Head from 'next/head';
+// ตัด Head ออกแล้วครับ เพื่อแก้ Error: 'Head' is defined but never used
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
@@ -102,7 +102,9 @@ const Home: React.FC = () => {
   useEffect(() => {
     let isMounted = true;
     animateText();
-    const timer = setTimeout(() => isMounted && setIsLoading(false), 1000);
+    const timer = setTimeout(() => {
+      if (isMounted) setIsLoading(false);
+    }, 1000);
     return () => {
       isMounted = false;
       clearTimeout(timer);
