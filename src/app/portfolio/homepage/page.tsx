@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
-// Corrected import from 'image' to 'next/image'
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
@@ -69,9 +68,9 @@ const projects: Project[] = [
 ];
 
 const socialLinks = [
-  { name: 'GitHub', url: 'https://github.com/Arm64022981?tab=repositories', icon: '/icons/github.png' },
-  { name: 'Instagram', url: 'https://www.instagram.com/pxrin_k/', icon: '/icons/instagram.png' },
-  { name: 'Facebook', url: 'https://web.facebook.com/arm.parin.2024', icon: '/icons/facebook.png' },
+  { name: 'GitHub', url: 'https://github.com/Arm64022981?tab=repositories' },
+  { name: 'Instagram', url: 'https://www.instagram.com/pxrin_k/' },
+  { name: 'Facebook', url: 'https://web.facebook.com/arm.parin.2024' },
 ];
 
 const Home: React.FC = () => {
@@ -85,7 +84,7 @@ const Home: React.FC = () => {
 
   const animateText = useCallback(async () => {
     const text = texts[currentTextIndex];
-    controls.set({ opacity: 0, y: 20 });
+    await controls.set({ opacity: 0, y: 20 });
 
     for (let i = 0; i <= text.length; i++) {
       await controls.start((index: number) => ({
@@ -116,432 +115,149 @@ const Home: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    emailjs
-      .send(
+    emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
+        { from_name: formData.name, from_email: formData.email, message: formData.message },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message sent successfully!',
-          text: 'Thank you for reaching out to me.',
-          confirmButtonText: 'Close',
-          background: '#1f2937',
-          color: '#ffffff'
-        });
+        Swal.fire({ icon: 'success', title: 'Message sent!', background: '#1f2937', color: '#fff' });
         setFormData({ name: '', email: '', message: '' });
       })
       .catch((error) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Failed to send the message',
-          text: error.text || 'An error has occurred',
-          confirmButtonText: 'Close',
-          background: '#1f2937',
-          color: '#ffffff'
-        });
+        Swal.fire({ icon: 'error', title: 'Error', text: error.text, background: '#1f2937', color: '#fff' });
       });
   };
 
   return (
-    <>
-      <Head>
-        <title>ByArm Portfolio</title>
-        <meta name="description" content="ByArm's portfolio showcasing web development skills" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="portfolio, developer, react, next.js, typescript" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white relative overflow-hidden">
+      
+      {/* Background Decor */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-[#0d1129] text-white relative overflow-hidden">
+      <Header />
 
-        <div className="fixed inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-3/4 left-1/2 w-96 h-96 bg-gray-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-        </div>
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 relative z-10">
+        
+        {/* Hero Section */}
+        <section className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-12">
+          <motion.div className="w-full lg:w-1/2 relative h-[50vh] sm:h-[60vh] lg:h-[80vh] rounded-3xl overflow-hidden" style={{ y: y1 }}>
+            {isLoading ? (
+              <div className="w-full h-full bg-gradient-to-br from-gray-800/20 to-blue-800/20 animate-pulse rounded-3xl" />
+            ) : (
+              <div className="relative w-full h-full group">
+                <Image src="/Armprofile.png" alt="Profile" fill style={{ objectFit: 'cover' }} className="rounded-3xl transition-all duration-700 group-hover:scale-110 group-hover:rotate-2" priority />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-3xl" />
+              </div>
+            )}
+          </motion.div>
 
-        <Header />
-        <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 relative z-10">
-
-          {/* Hero Section */}
-          <section className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-12">
-            <motion.div
-              className="w-full lg:w-1/2 relative h-[50vh] sm:h-[60vh] lg:h-[80vh] rounded-3xl overflow-hidden"
-              style={{ y: y1 }}
-            >
-              {isLoading ? (
-                <div className="w-full h-full bg-gradient-to-br from-gray-800/20 to-blue-800/20 animate-pulse rounded-3xl backdrop-blur-sm" />
-              ) : (
-                <div className="relative w-full h-full group">
-                  <Image
-                    src="/Armprofile.png"
-                    alt="ByArm Profile"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="rounded-3xl transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                    priority
-                    onError={() => setIsLoading(false)}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-3xl" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              )}
-            </motion.div>
-
-            <motion.div
-              className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-8"
-              style={{ y: y2 }}
-            >
-              <motion.div
-                key={currentTextIndex}
-                className="flex flex-wrap justify-center lg:justify-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
+          <motion.div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-8" style={{ y: y2 }}>
+            <AnimatePresence mode="wait">
+              <motion.div key={currentTextIndex} className="flex flex-wrap justify-center lg:justify-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
                 {texts[currentTextIndex].split("").map((char, index) => (
-                  <motion.span
-                    key={`${currentTextIndex}-${index}`}
-                    custom={index}
-                    animate={controls}
-                    className="inline-block text-white"
-                    aria-hidden={char === " "}
-                  >
+                  <motion.span key={index} animate={controls} custom={index}>
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
                 ))}
               </motion.div>
+            </AnimatePresence>
 
-              <motion.p
-                className="text-base sm:text-lg md:text-xl text-gray-300 text-center lg:text-left max-w-md leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                {"Crafting innovative web solutions with passion and precision. Let's build the future together with cutting-edge technology! 🚀"}
-              </motion.p>
+            <p className="text-base sm:text-lg text-gray-300 text-center lg:text-left max-w-md">
+              Crafting innovative web solutions with passion and precision. Let&apos;s build the future together! 🚀
+            </p>
 
+            <div className="flex gap-6">
+              <motion.a href="#projects" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl font-semibold shadow-lg hover:shadow-blue-500/25">
+                View Projects ✨
+              </motion.a>
+              <motion.a href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 border-2 border-blue-600 rounded-2xl font-semibold backdrop-blur-sm">
+                Get in Touch
+              </motion.a>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-24">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Featured Projects</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
               <motion.div
-                className="flex gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
+                key={index}
+                className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500"
+                whileHover={{ y: -10 }}
               >
-                <motion.a
-                  href="#projects"
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Projects ✨
-                </motion.a>
-                <motion.a
-                  href="#contact"
-                  className="px-8 py-4 border-2 border-blue-600 rounded-2xl font-semibold hover:bg-blue-600/20 transition-all duration-300 backdrop-blur-sm transform hover:-translate-y-1"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get in Touch
-                </motion.a>
-              </motion.div>
-            </motion.div>
-          </section>
-
-          {/* About Section */}
-          <section id="about" className="py-24">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-                About Me
-              </h2>
-              <div className="max-w-3xl mx-auto text-center space-y-8">
-                <motion.p
-                  className="text-lg sm:text-xl text-gray-300 leading-relaxed"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                >
-                  Currently, I’m working as a System Analyst, and honestly, I’m having a blast! There’s a certain thrill in talking with clients, diving into their ideas, and figuring out how to turn those visions into a solid system. It’s always exciting to solve puzzles and find the best solutions together.
-                </motion.p>
-                <motion.p
-                  className="text-lg sm:text-xl text-gray-300 leading-relaxed"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                >
-                  Beyond the analysis part, I still have a huge crush on Modern Web Development. I love keeping my hands dirty with code and staying up to date with new tech trends. For me, it’s all about the balance between clear logic and a great user experience. Always learning, always building, and definitely loving the journey!
-                </motion.p>
-              </div>
-            </motion.div>
-          </section>
-
-          {/* Projects Section */}
-          <section id="projects" className="py-24">
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              Featured Projects
-            </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  layoutId={`card-${project.slug}`}
-                  className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ y: -10 }}
-                >
-                  <Link href={project.slug} className="block cursor-pointer">
-                    <div className="relative h-64 overflow-hidden">
-                      {isLoading ? (
-                        <div className="w-full h-full bg-gradient-to-br from-purple-800/20 to-pink-800/20 animate-pulse" />
-                      ) : (
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          style={{ objectFit: 'cover' }}
-                          className="transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                      {project.isPublished && (
-                        <div className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg z-20">
-                          <Award size={12} /> Scopus Q3 Published
-                        </div>
-                      )}
+                <div className="relative h-64 overflow-hidden">
+                  <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} className="transition-all duration-700 group-hover:scale-110 group-hover:rotate-2" />
+                  {project.isPublished && (
+                    <div className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full flex items-center gap-2 z-20 shadow-lg">
+                      <Award size={12} /> Scopus Q3 Published
                     </div>
-                  </Link>
+                  )}
+                </div>
 
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <Link href={project.slug}>
-                        <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors cursor-pointer">
-                          {project.title}
-                        </h3>
-                      </Link>
-
-                      <div className="flex gap-2 shrink-0">
-                        {project.isPublished && project.researchUrl && (
-                          <motion.a
-                            href={project.researchUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300 flex items-center gap-1"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FileText size={14} /> Paper
-                          </motion.a>
-                        )}
-
-                        {project.demoUrl && (
-                          <motion.a
-                            href={project.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Demo
-                          </motion.a>
-                        )}
-                      </div>
-                    </div>
-
-                    <Link href={project.slug}>
-                      <p className="text-gray-400 text-sm leading-relaxed cursor-pointer line-clamp-3">
-                        {project.description}
-                      </p>
-                    </Link>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-xs font-medium border border-blue-500/30"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-4 mt-4">
-                      {project.githubUrl && (
-                        <motion.a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          GitHub
+                <div className="p-6 space-y-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <Link href={project.slug}><h3 className="text-xl font-bold group-hover:text-blue-300 transition-colors">{project.title}</h3></Link>
+                    <div className="flex gap-2 shrink-0">
+                      {project.isPublished && project.researchUrl && (
+                        <motion.a href={project.researchUrl} target="_blank" whileHover={{ scale: 1.05 }} className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 flex items-center gap-1">
+                          <FileText size={14} /> Paper
                         </motion.a>
                       )}
-                      {project.liveUrl && (
-                        <motion.a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300 hover:bg-blue-600/40 transition-all duration-300"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Live Site
+                      {project.demoUrl && (
+                        <motion.a href={project.demoUrl} target="_blank" whileHover={{ scale: 1.05 }} className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 rounded-xl text-sm font-medium text-blue-300">
+                          Demo
                         </motion.a>
                       )}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          {/* Contact Section */}
-          <section id="contact" className="py-24">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-                Let&apos;s Connect
-              </h2>
-              <div className="max-w-2xl mx-auto">
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-purple-500/20">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                      >
-                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-gray-800/50 border border-blue-500/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                          placeholder="Your name"
-                          required
-                        />
-                      </motion.div>
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-gray-800/50 border border-blue-500/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                          placeholder="your@email.com"
-                          required
-                        />
-                      </motion.div>
-                    </div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-800/50 border border-blue-500/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-                        rows={5}
-                        placeholder="Tell me about your project..."
-                        required
-                      />
-                    </motion.div>
-                    <motion.button
-                      type="submit"
-                      className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 }}
-                    >
-                      Send Message
-                    </motion.button>
-                  </form>
+                  <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-xs border border-blue-500/30">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </section>
-        </main>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
-        <footer className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm py-12 text-center border-t border-blue-500/20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <p className="text-gray-400 text-lg">
-              © {new Date().getFullYear()} ByArm. All rights reserved.
-            </p>
-            <div className="flex justify-center gap-8">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.url}
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-lg"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.name}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        </footer>
-      </div>
-    </>
+        {/* Contact Section */}
+        <section id="contact" className="py-24">
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 border border-purple-500/20 backdrop-blur-sm">
+            <h2 className="text-3xl font-bold text-center mb-8">Let&apos;s Connect</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" name="name" value={formData.name} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-800/50 border border-blue-500/30 rounded-2xl text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="Name" required />
+                <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-900/50 border border-blue-500/30 rounded-2xl text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="Email" required />
+              </div>
+              <textarea name="message" value={formData.message} onChange={handleInputChange} rows={5} className="w-full px-4 py-3 bg-gray-800/50 border border-blue-500/30 rounded-2xl text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none" placeholder="Your message..." required />
+              <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl font-bold shadow-lg hover:shadow-blue-500/25">
+                Send Message
+              </motion.button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer className="py-12 text-center border-t border-blue-500/20 bg-gray-900/80 backdrop-blur-sm">
+        <p className="text-gray-400 mb-6">© {new Date().getFullYear()} ByArm. All rights reserved.</p>
+        <div className="flex justify-center gap-8">
+          {socialLinks.map((social, i) => (
+            <motion.a key={i} href={social.url} target="_blank" whileHover={{ scale: 1.1, y: -2 }} className="text-gray-400 hover:text-blue-400 transition-colors font-medium">
+              {social.name}
+            </motion.a>
+          ))}
+        </div>
+      </footer>
+    </div>
   );
 };
 
