@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
-// ตัด Head ออกแล้วครับ เพื่อแก้ Error: 'Head' is defined but never used
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
@@ -60,7 +59,7 @@ const projects: Project[] = [
   {
     title: "Promotion Tools Hub",
     description: "A comprehensive web-based platform designed to support and streamline telecommunications operations, featuring integrated system management, data analysis, and operational monitoring tools.",
-    image: "/icons/Project 4.jpg",
+    image: "/icons/Project 4.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide Icons"],
     slug: "/portfolio/projectwork/project4",
     demoUrl: "https://promotion-tools-hub-siv9.vercel.app/mainocs",
@@ -78,36 +77,61 @@ const Home: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
+  
+  // ใช้ ref เพื่อเช็คว่า Component ยังแสดงผลอยู่หรือไม่ ป้องกัน memory leak
+  const isMounted = useRef(true);
+
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 300], [0, -50]);
   const y2 = useTransform(scrollY, [0, 300], [0, -100]);
 
-  const animateText = useCallback(async () => {
-    const text = texts[currentTextIndex];
-    await controls.set({ opacity: 0, y: 20 });
+  // ฟังก์ชัน Animation ที่วนลูปตัวเองไปเรื่อยๆ
+  const animateText = useCallback(async (index: number) => {
+    if (!isMounted.current) return;
 
+    const text = texts[index];
+    
+    // 1. Reset และเริ่ม Animation ขาเข้า (Typing effect)
+    await controls.set({ opacity: 0, y: 20 });
     for (let i = 0; i <= text.length; i++) {
-      await controls.start((index: number) => ({
-        opacity: index < i ? 1 : 0,
-        y: index < i ? 0 : 20,
-        transition: { duration: 0.15, ease: 'easeOut' },
+      if (!isMounted.current) return;
+      await controls.start((charIndex: number) => ({
+        opacity: charIndex < i ? 1 : 0,
+        y: charIndex < i ? 0 : 20,
+        transition: { duration: 0.1, ease: 'easeOut' },
       }));
-      await new Promise((resolve) => setTimeout(resolve, 50));
+      await new Promise((resolve) => setTimeout(resolve, 40));
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-  }, [currentTextIndex, controls]);
+    // 2. ค้างข้อความไว้ให้คนอ่าน
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    // 3. Animation ขาออก (Fade out)
+    if (!isMounted.current) return;
+    await controls.start({
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.5, ease: 'easeIn' }
+    });
+
+    // 4. ไปยังข้อความถัดไปและเรียกตัวเองซ้ำ
+    if (isMounted.current) {
+      const nextIndex = (index + 1) % texts.length;
+      setCurrentTextIndex(nextIndex);
+      animateText(nextIndex);
+    }
+  }, [controls]);
 
   useEffect(() => {
-    let isMounted = true;
-    animateText();
+    isMounted.current = true;
+    animateText(0);
+
     const timer = setTimeout(() => {
-      if (isMounted) setIsLoading(false);
+      if (isMounted.current) setIsLoading(false);
     }, 1000);
+
     return () => {
-      isMounted = false;
-      clearTimeout(timer);
+      isMounted.current = false;
     };
   }, [animateText]);
 
@@ -159,15 +183,20 @@ const Home: React.FC = () => {
           </motion.div>
 
           <motion.div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-8" style={{ y: y2 }}>
-            <AnimatePresence mode="wait">
-              <motion.div key={currentTextIndex} className="flex flex-wrap justify-center lg:justify-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
-                {texts[currentTextIndex].split("").map((char, index) => (
-                  <motion.span key={index} animate={controls} custom={index}>
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+            <div className="h-32 flex items-center"> {/* ล็อกความสูงไว้ไม่ให้ Layout ขยับตอนเปลี่ยนข้อความ */}
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={currentTextIndex} 
+                  className="flex flex-wrap justify-center lg:justify-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
+                >
+                  {texts[currentTextIndex].split("").map((char, index) => (
+                    <motion.span key={index} animate={controls} custom={index}>
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
             <p className="text-base sm:text-lg text-gray-300 text-center lg:text-left max-w-md">
               Crafting innovative web solutions with passion and precision. Let&apos;s build the future together! 🚀
